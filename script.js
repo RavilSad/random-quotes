@@ -27,7 +27,7 @@ function getRandomQuote() {
   quoteElement.innerText = `"${quote.text} - ${quote.author}"`;
 }
 
-const hiFunc = () => console.log('Hihi');
+const hiFunc = () => console.log('HihiHIHI');
 quoteElement.addEventListener('click', hiFunc);
 
 quoteBtn.addEventListener('click', getRandomQuote);
