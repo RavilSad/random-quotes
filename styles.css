@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #333;
   margin: 0;
 }
 
@@ -29,4 +29,13 @@ body {
 
 #new-quote:hover {
   background: darkblue;
+}
+
+.quote-text {
+  font-style: italic;
+}
+
+.quote-text::before,
+.quote-text::after {
+  content: '"';
 }
