@@ -1,11 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Элементы идут сверху вниз */
   align-items: center;
-  height: 100vh;
+  min-height: 100vh; /* Полная высота экрана */
   background-color: #333;
   margin: 0;
+  padding: 20px; /* Для отступов */
 }
 
 #quote-box {
@@ -15,9 +16,22 @@ body {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 50%;
+  max-width: 600px; /* Ограничим ширину */
+  margin-bottom: 20px; /* Отступ снизу */
 }
 
 #new-quote {
+  background: blue;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+#toggle-favorite {
+  display: none;
   background: blue;
   color: white;
   border: none;
@@ -38,4 +52,25 @@ body {
 .quote-text::before,
 .quote-text::after {
   content: '"';
+}
+
+.favorite-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 900px; /* Такая же ширина, как у quote-box */
+  margin-top: 20px; /* Отступ сверху */
+}
+
+.favoriteCard {
+  background-color: bisque;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 8px;
+  width: 230px;
+}
+
+.author {
+  font-style: italic;
 }
