@@ -1,11 +1,10 @@
-import quotes from './Data/quotes.js';
 import { toggleFavoriteBtnHandler } from './favorite.js';
 import { generateRandomInt } from './utils.js';
+import { favoriteBtn } from '../index.js';
 
-let currentQuote = null;
-function generateRandomQuote() {
+function generateRandomQuote(quotes, setCurrentQuote) {
   const randomQuote = getRandomQuote(quotes);
-  currentQuote = randomQuote;
+  setCurrentQuote(randomQuote);
   showQuote(randomQuote);
 }
 
@@ -15,7 +14,7 @@ function showQuote(quote) {
   const quoteAuthorElement = document.getElementById('author');
   quoteElement.textContent = text;
   quoteAuthorElement.textContent = author;
-  toggleFavoriteBtnHandler();
+  toggleFavoriteBtnHandler(quote, favoriteBtn);
 }
 
 let currentIndex = -1;
@@ -28,4 +27,4 @@ function getRandomQuote(quotes) {
   return quotes[randomIndex];
 }
 
-export { generateRandomQuote, currentQuote };
+export { generateRandomQuote };
