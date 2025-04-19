@@ -5,13 +5,12 @@ function toggleFavoriteBtnHandler(quote, btn) {
 
 function toggleFavorite(quote, btn, favoritesContainer) {
   quote.isFavorite = !quote.isFavorite;
-  const { text, author, isFavorite } = quote;
-  toggleFavoriteIconBtn(isFavorite, btn);
+  toggleFavoriteIconBtn(quote.isFavorite, btn);
 
-  if (isFavorite) {
-    showFavoriteCard(text, author, favoritesContainer);
+  if (quote.isFavorite) {
+    showFavoriteCard(quote, favoritesContainer);
   } else {
-    hideFavoriteCard(text);
+    hideFavoriteCard(quote.id);
   }
 }
 
@@ -28,21 +27,21 @@ function hideToggleFavoriteBtn(btn) {
   btn.style.display = 'None';
 }
 
-function showFavoriteCard(quote, author, container) {
+function showFavoriteCard(quote, container) {
+  const { id, text, author } = quote;
   const favoriteCardElement = document.createElement('div');
   favoriteCardElement.classList.add('favoriteCard');
-  favoriteCardElement.innerHTML = `<p>${quote}</p>
+  favoriteCardElement.dataset.quoteId = id;
+  favoriteCardElement.innerHTML = `<p>${text}</p>
   <p class='author'> ${author}</p>`;
   container.appendChild(favoriteCardElement);
 }
 
-function hideFavoriteCard(quote) {
-  const favoriteCards = document.querySelectorAll('.favoriteCard');
-  favoriteCards.forEach((card) => {
-    if (card.textContent.includes(quote)) {
-      card.remove();
-    }
-  });
+function hideFavoriteCard(id) {
+  const card = document.querySelector(`[data-quote-id="${id}"]`);
+  if (card) {
+    card.remove();
+  }
 }
 
 export { toggleFavoriteBtnHandler, toggleFavorite, hideToggleFavoriteBtn };
