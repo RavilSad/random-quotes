@@ -9,11 +9,13 @@ function generateRandomQuote(quotes, setCurrentQuote) {
 }
 
 function showQuote(quote) {
-  const { text, author } = quote;
-  const quoteElement = document.getElementById('quote-text');
+  const { id, text, author } = quote;
+  const quoteElement = document.getElementById('quote');
+  const quoteTextElement = document.getElementById('quote-text');
   const quoteAuthorElement = document.getElementById('author');
-  quoteElement.textContent = text;
+  quoteTextElement.textContent = text;
   quoteAuthorElement.textContent = author;
+  quoteElement.dataset.currentQuoteId = id;
   toggleFavoriteBtnHandler(quote, favoriteBtn);
 }
 

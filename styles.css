@@ -4,7 +4,7 @@ body {
   flex-direction: column; /* Элементы идут сверху вниз */
   align-items: center;
   min-height: 100vh; /* Полная высота экрана */
-  background-color: #333;
+  background-color: #605f5f;
   margin: 0;
   padding: 20px; /* Для отступов */
 }
@@ -32,8 +32,24 @@ body {
   background: darkblue;
 }
 
+.favorite-card-content {
+  flex: 1;
+  padding: 10px;
+}
+
+.delete-btn {
+  background: rgb(220, 220, 1);
+  color: black;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: auto;
+}
+
 .quote-text {
   font-style: italic;
+  font-size: 1.2em;
 }
 
 .quote-text::before,
@@ -51,11 +67,13 @@ body {
 }
 
 .favoriteCard {
+  display: flex;
+  flex-direction: column;
   background-color: bisque;
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
-  width: 230px;
+  width: 25%;
 }
 
 .author {
