@@ -4,7 +4,8 @@ body {
   flex-direction: column; /* Элементы идут сверху вниз */
   align-items: center;
   min-height: 100vh; /* Полная высота экрана */
-  background-color: #605f5f;
+  background-color: #292929;
+  color: white;
   margin: 0;
   padding: 20px; /* Для отступов */
 }
@@ -38,7 +39,7 @@ body {
 }
 
 .delete-btn {
-  background: rgb(220, 220, 1);
+  background: rgb(235, 157, 213);
   color: black;
   border: none;
   padding: 10px 15px;
@@ -69,7 +70,7 @@ body {
 .favoriteCard {
   display: flex;
   flex-direction: column;
-  background-color: bisque;
+  background-color: rgb(71, 71, 71);
   padding: 10px;
   margin: 10px;
   border-radius: 8px;
