@@ -1,9 +1,9 @@
-function deleteFavotiteCard(quote, btn) {
+function deleteFavotiteCard(quote, setCurrentQuote, btn) {
   if (quote.id) {
-    quote.isFavorite = false;
+    setCurrentQuote(quote, true, false);
     hideFavoriteCard(quote.id);
     const currentQuoteId = document.querySelector('[data-current-quote-id]')
-      .dataset.currentQuoteId;
+      ?.dataset.currentQuoteId;
     if (quote.id === currentQuoteId) {
       toggleFavoriteIconBtn(quote.isFavorite, btn);
     }
@@ -24,8 +24,9 @@ function toggleFavoriteIconBtn(isFavorite, toggleFavoriteBtn) {
   toggleFavoriteBtn.classList.toggle('far', !isFavorite);
 }
 
-function toggleFavorite(quote, btn, favoritesContainer) {
-  quote.isFavorite = !quote.isFavorite;
+function toggleFavorite(quote, setCurrentQoute, btn, favoritesContainer) {
+  const changeFavoriteFlag = true;
+  setCurrentQoute(quote, changeFavoriteFlag);
   toggleFavoriteIconBtn(quote.isFavorite, btn);
 
   if (quote.isFavorite) {
@@ -66,4 +67,5 @@ export {
   toggleFavorite,
   hideToggleFavoriteBtn,
   deleteFavotiteCard,
+  showFavoriteCard,
 };
